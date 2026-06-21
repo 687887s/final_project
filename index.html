@@ -517,7 +517,7 @@
             </li>
             <li class="nav-item">
                 <button class="nav-btn" onclick="loadNotebook('Final_project_python_compare_MWU_test.html', this)">
-                    <span class="nav-btn-icon">🧪</span>Step 5. MWU 假設檢定 (Hypothesis)
+                    <span class="nav-btn-icon">🧪</span>Step 5. 負荷比假設檢定 (Hypothesis)
                 </button>
             </li>
         </ul>
@@ -530,7 +530,7 @@
 
     <!-- 右側 主展示區 -->
     <main class="main-content">
-        <!-- Iframe 用於載入 Jupyter 生成的 HTML -->
+        <!-- Iframe 用於載入 Jupyter 生成 the HTML -->
         <iframe id="notebook-iframe" class="notebook-iframe" src=""></iframe>
         
         <!-- 預設顯示的 Dashboard 總覽面版 -->
@@ -550,14 +550,14 @@
                         <div class="stat-desc">歷年雙北市車禍與相機位置資料 / Multi-year GIS data</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-label">敏感度半徑範圍 / Radii Range</div>
-                        <div class="stat-value">500m - 10,000m</div>
-                        <div class="stat-desc">以測速相機為中心擴散搜尋 / Buffer radius calculations</div>
+                        <div class="stat-label">敏感度最優半徑 / Optimal Radius</div>
+                        <div class="stat-value">5,400 m</div>
+                        <div class="stat-desc">相關係數 ρ 最強的空間尺度 / Scaled buffer for peak correlation</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-label">空間相關分析法 / Methods</div>
-                        <div class="stat-value">Spearman & MWU</div>
-                        <div class="stat-desc">無母數相關性與分布檢定 / Non-parametric tests</div>
+                        <div class="stat-value">Spearman, Fisher & MWU</div>
+                        <div class="stat-desc">無母數相關性、一致性與負荷比檢定 / Spatial hypothesis tests</div>
                     </div>
                     <div class="stat-card">
                         <div class="stat-label">核心地圖引擎 / Map Engine</div>
@@ -572,10 +572,10 @@
                     <div class="section-card">
                         <h3 class="section-title">核心研究發現與視覺化結果 / Core Findings & Visualizations</h3>
                         <p class="section-text">
-                            <strong>[中文]</strong> 本研究透過計算各測速照相機在不同半徑範圍內的車禍發生頻率，並利用 Spearman 相關分析來確認「照相機密度」與「車禍發生率」之間的關聯。發現相關係數受空間半徑影響極大，並在特定空間尺度下呈現顯著的正相關性。這可能暗示測速照相機往往被優先設置於車禍發生密度較高的「高風險熱點路段」。
+                            <strong>[中文]</strong> 本研究發現測速照相與車禍分布存在顯著空間正相關。台北市 110-113 歷年最優半徑均為 <strong>5,400公尺</strong>（ρ分別達 0.672、0.690、0.684、0.700）。Fisher's Z-test 檢定證實雙北相關性高度一致；而在 9.5 公里半徑下，Mann-Whitney U 檢定表明**台北市的事故負荷比（事故數/相機數）顯著小於新北市**，暗示台北市設置數量較足夠，設立合理性較高。
                         </p>
                         <p class="section-text" style="border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 12px;">
-                            <strong>[English]</strong> This study computes traffic accident frequencies around speed cameras within various buffers. Spearman correlation analysis is used to confirm the relationship between camera density and accident rate. The correlation is highly scale-dependent, displaying a significant positive correlation at specific spatial search radii. This implies that speed cameras are preferentially deployed at "high-risk hot spots" where traffic accidents are historically dense.
+                            <strong>[English]</strong> This study reveals a significant positive spatial correlation between speed cameras and accidents. The optimal radius in Taipei is consistently <strong>5,400m</strong> across Yr 110-113 (ρ: 0.672, 0.690, 0.684, 0.700). Fisher's Z-test confirms high consistency in correlation between Taipei and New Taipei. However, under a 9.5km radius, the Mann-Whitney U test shows **Taipei has a statistically smaller accident load ratio** than New Taipei, indicating Taipei's deployment is more adequate and rational.
                         </p>
                         
                         <div class="gallery-grid">
@@ -626,21 +626,21 @@
                                 <div class="file-number">3</div>
                                 <div class="file-details">
                                     <div class="file-name">臺北市半徑分析 / Taipei Radius Analysis</div>
-                                    <div class="file-desc">相關係數隨搜尋半徑的敏感度變化<br>Sensitivity of coefficients across radii</div>
+                                    <div class="file-desc">相關係數隨搜尋半徑的敏感度變化 (尋找 5,400m 最優半徑)<br>Sensitivity of coefficients across radii (finding 5400m)</div>
                                 </div>
                             </li>
                             <li class="file-list-item">
                                 <div class="file-number">4</div>
                                 <div class="file-details">
                                     <div class="file-name">雙北市對比分析 / Taipei vs New Taipei Compare</div>
-                                    <div class="file-desc">比對臺北市與新北市的數據趨勢差異<br>Contrast correlation patterns of two cities</div>
+                                    <div class="file-desc">執行 Fisher's Z-test 檢定相關係數一致性<br>Perform Fisher's Z-test to contrast correlation patterns</div>
                                 </div>
                             </li>
                             <li class="file-list-item">
                                 <div class="file-number">5</div>
                                 <div class="file-details">
-                                    <div class="file-name">MWU 假設檢定 / MWU Hypothesis Testing</div>
-                                    <div class="file-desc">檢定兩市車禍分布之統計顯著差異<br>Statistical significance tests between distributions</div>
+                                    <div class="file-name">負荷比假設檢定 / Load Ratio MWU Testing</div>
+                                    <div class="file-desc">以 MWU 檢定分析 9.5km 下雙北相機事故負荷比顯著差異<br>Analyze accident load ratio differences using MWU test</div>
                                 </div>
                             </li>
                         </ul>
@@ -655,8 +655,8 @@
                         <div>
                             <h4 style="font-size: 15px; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">1. 空間半徑敏感度分析演算法 / Spatial Radius Sensitivity</h4>
                             <p class="section-text" style="font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">
-                                <strong>[中]</strong> 以各測速照相機為中心建立半徑 $r$ 空間緩衝區 (Buffer)，統計落入其中的車禍數，並計算 Spearman 等級相關係數。<br>
-                                <strong>[Eng]</strong> Establish spatial buffers $B(C, r)$ centered at each speed camera, count occurrences of accidents within them, and calculate Spearman rank correlation:
+                                <strong>[中]</strong> 以測速相機為中心建立半徑 $r$ 緩衝區 (Buffer) 統計事故數，計算 Spearman 相關係數。臺北市歷年最優半徑均為 **5,400公尺** (ρ在 113年達0.700)。<br>
+                                <strong>[Eng]</strong> Create buffers $B(C, r)$ centered at cameras, count accidents, and calculate Spearman correlation. The optimal radius in Taipei is consistently **5,400m** (ρ reaches 0.700 in Yr 113):
                             </p>
                             <pre style="background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; font-family: monospace; font-size: 11px; color: #a7f3d0; overflow-x: auto; line-height: 1.5; margin-bottom: 16px;">
 Algorithm: Spatial_Sensitivity_Correlation
@@ -674,8 +674,8 @@ For each radius r in [500m, 1500m, ..., 9500m]:
                         <div>
                             <h4 style="font-size: 15px; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">2. 最小平方法線性建模 / Least Squares Linear Modeling</h4>
                             <p class="section-text" style="font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">
-                                <strong>[中]</strong> 求解線性觀測方程 $d = G m + e$。封裝於 <code>utils.py</code>，提供普通最小平方 (LS) 與加權最小平方 (WLS) 矩陣運算。<br>
-                                <strong>[Eng]</strong> Solve linear observation equation $d = G m + e$. Enclosed in <code>utils.py</code> to support Ordinary (LS) and Weighted Least Squares (WLS) matrix products:
+                                <strong>[中]</strong> 求解線性觀測方程 $d = G m + e$。封裝於 <code>utils.py</code>，提供普通最小平方 (LS) 與加權最小平方 (WLS) 矩陣運算以適配雙北趨勢線。<br>
+                                <strong>[Eng]</strong> Solve linear observation equation $d = G m + e$. Enclosed in <code>utils.py</code> to support Ordinary (LS) and Weighted Least Squares (WLS) matrix products for regression trends:
                             </p>
                             <pre style="background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; font-family: monospace; font-size: 11px; color: #a7f3d0; overflow-x: auto; line-height: 1.5; margin-bottom: 16px;">
 Algorithm: solveWLS (Weighted Least Squares)
