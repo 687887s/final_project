@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>雙北市測速照相與車禍相關性探索分析 (EDA)</title>
+    <title>雙北市測速照相與車禍空間關係研究 | Spatial Analysis of Speed Cameras & Accidents</title>
     <!-- 引入高質感 Google 字型 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,17 +55,18 @@
         }
 
         .sidebar-logo {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 800;
             background: var(--primary-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             margin-bottom: 8px;
             letter-spacing: 0.5px;
+            line-height: 1.3;
         }
 
         .sidebar-subtitle {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
             line-height: 1.4;
             font-weight: 500;
@@ -221,17 +222,18 @@
         }
 
         .dash-title {
-            font-size: 32px;
+            font-size: 30px;
             font-weight: 800;
             letter-spacing: -0.5px;
             margin-bottom: 8px;
             background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            line-height: 1.3;
         }
 
         .dash-subtitle {
-            font-size: 15px;
+            font-size: 14px;
             color: var(--text-muted);
         }
 
@@ -258,7 +260,7 @@
         }
 
         .stat-label {
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             text-transform: uppercase;
             color: var(--text-muted);
@@ -267,14 +269,15 @@
         }
 
         .stat-value {
-            font-size: 28px;
+            font-size: 24px;
             font-weight: 700;
             color: var(--text-main);
             margin-bottom: 4px;
+            line-height: 1.2;
         }
 
         .stat-desc {
-            font-size: 12px;
+            font-size: 11px;
             color: var(--text-muted);
         }
 
@@ -300,7 +303,7 @@
         }
 
         .section-title {
-            font-size: 20px;
+            font-size: 19px;
             font-weight: 700;
             margin-bottom: 20px;
             color: var(--text-main);
@@ -309,7 +312,7 @@
         }
 
         .section-text {
-            font-size: 14px;
+            font-size: 13.5px;
             color: var(--text-muted);
             line-height: 1.7;
             margin-bottom: 16px;
@@ -355,11 +358,12 @@
 
         .gallery-title {
             padding: 12px;
-            font-size: 12px;
+            font-size: 11px;
             font-weight: 600;
             color: var(--text-main);
             text-align: center;
             border-top: 1px solid var(--border-color);
+            line-height: 1.4;
         }
 
         /* 檔案導覽小卡 */
@@ -406,6 +410,7 @@
         .file-desc {
             font-size: 11px;
             color: var(--text-muted);
+            line-height: 1.4;
         }
 
         /* 燈箱 Modal */
@@ -468,13 +473,13 @@
     <!-- 左側 Sidebar -->
     <aside class="sidebar">
         <div class="sidebar-header">
-            <h1 class="sidebar-logo">雙北測速與車禍 EDA</h1>
-            <p class="sidebar-subtitle">探索測速照相密度與車禍發生密度之空間相關性</p>
+            <h1 class="sidebar-logo">雙北測速與車禍 EDA<br><span style="font-size: 13px; font-weight: 600; opacity: 0.8;">Speed Cameras & Accidents EDA</span></h1>
+            <p class="sidebar-subtitle">探索測速照相密度與車禍發生密度之空間相關性<br>Exploring Spatial Correlation between Camera & Accident Densities</p>
         </div>
         
         <!-- 專案目標折疊區 -->
         <div class="objective-section" id="obj-sec">
-            <div class="objective-title" onclick="toggleObjective()">專案目標 (Objective)</div>
+            <div class="objective-title" onclick="toggleObjective()">專案目標 (Project Objective)</div>
             <div class="objective-content">
                 <strong>[中文]</strong><br>
                 本專案旨在透過探索性資料分析（EDA）探討臺北市與新北市自民國 110 年至 113 年間，測速照相機設置密度與道路車禍發生密度之間的空間相關性。藉由在不同空間搜尋半徑（500公尺至 10,000公尺）下進行敏感度分析，並結合統計檢定，驗證測速照相機的設置密度與車禍分布是否存在統計上的顯著關係。<br><br>
@@ -492,34 +497,34 @@
             </li>
             <li class="nav-item">
                 <button class="nav-btn" onclick="loadNotebook('Final_project_dataprocess.html', this)">
-                    <span class="nav-btn-icon">🧹</span>Step 1. 資料預處理
+                    <span class="nav-btn-icon">🧹</span>Step 1. 資料預處理 (Preprocessing)
                 </button>
             </li>
             <li class="nav-item">
                 <button class="nav-btn" onclick="loadNotebook('Final_project_pygmt.html', this)">
-                    <span class="nav-btn-icon">🗺️</span>Step 2. PyGMT 地理製圖
+                    <span class="nav-btn-icon">🗺️</span>Step 2. PyGMT 地理製圖 (Mapping)
                 </button>
             </li>
             <li class="nav-item">
                 <button class="nav-btn" onclick="loadNotebook('Final_project_python.html', this)">
-                    <span class="nav-btn-icon">📈</span>Step 3. 臺北市半徑分析
+                    <span class="nav-btn-icon">📈</span>Step 3. 臺北市半徑分析 (Radius)
                 </button>
             </li>
             <li class="nav-item">
                 <button class="nav-btn" onclick="loadNotebook('Final_project_python_compare.html', this)">
-                    <span class="nav-btn-icon">⚖️</span>Step 4. 雙北市對比分析
+                    <span class="nav-btn-icon">⚖️</span>Step 4. 雙北市對比分析 (Compare)
                 </button>
             </li>
             <li class="nav-item">
                 <button class="nav-btn" onclick="loadNotebook('Final_project_python_compare_MWU_test.html', this)">
-                    <span class="nav-btn-icon">🧪</span>Step 5. MWU 假設檢定
+                    <span class="nav-btn-icon">🧪</span>Step 5. MWU 假設檢定 (Hypothesis)
                 </button>
             </li>
         </ul>
         
         <div class="sidebar-footer">
-            <p>NTNU DSCP 期末專案</p>
-            <p>程式庫：<a href="https://github.com/687887s/final_project" target="_blank">GitHub Repo</a></p>
+            <p>NTNU DSCP 期末專案 / Final Project</p>
+            <p>程式庫 / Codebase: <a href="https://github.com/687887s/final_project" target="_blank">GitHub Repo</a></p>
         </div>
     </aside>
 
@@ -533,31 +538,31 @@
             <div class="dashboard-container">
                 
                 <header class="dash-header">
-                    <h2 class="dash-title">雙北市測速照相與車禍空間關係研究</h2>
-                    <p class="dash-subtitle">探索性資料分析 (EDA) 與統計假說檢定總覽</p>
+                    <h2 class="dash-title">雙北市測速照相與車禍空間關係研究<br><span style="font-size: 20px; font-weight: 600; opacity: 0.85;">Spatial Relationship between Speed Cameras & Accidents</span></h2>
+                    <p class="dash-subtitle">探索性資料分析 (EDA) 與統計假說檢定總覽 / Overview of Exploratory Data Analysis & Hypothesis Testing</p>
                 </header>
                 
                 <!-- 數據小卡 -->
                 <section class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-label">研究時間區間</div>
-                        <div class="stat-value">民國 110 - 113 年</div>
-                        <div class="stat-desc">歷年雙北市車禍與相機位置資料</div>
+                        <div class="stat-label">研究時間區間 / Timeframe</div>
+                        <div class="stat-value">民國 110 - 113 年<br><span style="font-size: 14px; font-weight: 500; opacity: 0.8;">Years 110 - 113</span></div>
+                        <div class="stat-desc">歷年雙北市車禍與相機位置資料 / Multi-year GIS data</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-label">敏感度半徑範圍</div>
+                        <div class="stat-label">敏感度半徑範圍 / Radii Range</div>
                         <div class="stat-value">500m - 10,000m</div>
-                        <div class="stat-desc">以測速相機為中心擴散搜尋</div>
+                        <div class="stat-desc">以測速相機為中心擴散搜尋 / Buffer radius calculations</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-label">空間相關分析法</div>
+                        <div class="stat-label">空間相關分析法 / Methods</div>
                         <div class="stat-value">Spearman & MWU</div>
-                        <div class="stat-desc">無母數相關性與分布檢定</div>
+                        <div class="stat-desc">無母數相關性與分布檢定 / Non-parametric tests</div>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-label">核心地圖引擎</div>
+                        <div class="stat-label">核心地圖引擎 / Map Engine</div>
                         <div class="stat-value">PyGMT & GIS</div>
-                        <div class="stat-desc">使用 Generic Mapping Tools 平滑化</div>
+                        <div class="stat-desc">使用 Generic Mapping Tools 平滑化 / Surface interpolation</div>
                     </div>
                 </section>
                 
@@ -565,74 +570,77 @@
                 <div class="content-grid">
                     <!-- 左欄：核心結論與圖表 -->
                     <div class="section-card">
-                        <h3 class="section-title">核心研究發現與視覺化結果</h3>
+                        <h3 class="section-title">核心研究發現與視覺化結果 / Core Findings & Visualizations</h3>
                         <p class="section-text">
-                            本研究透過計算各測速照相機在不同半徑範圍內的車禍發生頻率，並利用 Spearman 相關分析來確認「照相機密度」與「車禍發生率」之間的關聯。發現相關係數受空間半徑影響極大，並在特定空間尺度下呈現顯著的正相關性。這可能暗示測速照相機往往被優先設置於車禍發生密度較高的「高風險熱點路段」。
+                            <strong>[中文]</strong> 本研究透過計算各測速照相機在不同半徑範圍內的車禍發生頻率，並利用 Spearman 相關分析來確認「照相機密度」與「車禍發生率」之間的關聯。發現相關係數受空間半徑影響極大，並在特定空間尺度下呈現顯著的正相關性。這可能暗示測速照相機往往被優先設置於車禍發生密度較高的「高風險熱點路段」。
+                        </p>
+                        <p class="section-text" style="border-top: 1px solid var(--border-color); padding-top: 12px; margin-top: 12px;">
+                            <strong>[English]</strong> This study computes traffic accident frequencies around speed cameras within various buffers. Spearman correlation analysis is used to confirm the relationship between camera density and accident rate. The correlation is highly scale-dependent, displaying a significant positive correlation at specific spatial search radii. This implies that speed cameras are preferentially deployed at "high-risk hot spots" where traffic accidents are historically dense.
                         </p>
                         
                         <div class="gallery-grid">
-                            <div class="gallery-item" onclick="openImage('Taipei_113.png', '臺北市 113 年度測速照相密度與車禍分布圖')">
+                            <div class="gallery-item" onclick="openImage('Taipei_113.png', '臺北市 113 年度測速照相密度與車禍分布圖 / Taipei 113 Speed Camera Density and Accident Distribution')">
                                 <div class="gallery-img-container">
                                     <img class="gallery-img" src="Taipei_113.png" alt="Taipei 113">
                                 </div>
-                                <div class="gallery-title">臺北市 113 年度測速分布地圖</div>
+                                <div class="gallery-title">臺北市 113 年度測速分布地圖<br>Taipei 113 Speed Camera Density Map</div>
                             </div>
                             
-                            <div class="gallery-item" onclick="openImage('Taipei_NewTaipei_compare.png', '臺北市與新北市相關係數比較圖')">
+                            <div class="gallery-item" onclick="openImage('Taipei_NewTaipei_compare.png', '臺北市與新北市相關係數比較圖 / Comparison of Correlation Coefficients: Taipei vs New Taipei')">
                                 <div class="gallery-img-container">
                                     <img class="gallery-img" src="Taipei_NewTaipei_compare.png" alt="Compare">
                                 </div>
-                                <div class="gallery-title">雙北市不同半徑相關係數比較</div>
+                                <div class="gallery-title">雙北市不同半徑相關係數比較<br>Correlation Coefficients across Radii</div>
                             </div>
                             
-                            <div class="gallery-item" onclick="openImage('Taipei_NewTaipei_corr_compare.png', '雙北統計相關係數差異性分析')">
+                            <div class="gallery-item" onclick="openImage('Taipei_NewTaipei_corr_compare.png', '雙北統計相關係數差異性分析 / Spatial Variation Contrast between Taipei and New Taipei')">
                                 <div class="gallery-img-container">
                                     <img class="gallery-img" src="Taipei_NewTaipei_corr_compare.png" alt="Correlation Compare">
                                 </div>
-                                <div class="gallery-title">雙北市相關係數空間變異性</div>
+                                <div class="gallery-title">雙北市相關係數空間變異性<br>Spatial Variation of Correlation</div>
                             </div>
                         </div>
                     </div>
                     
                     <!-- 右欄：分析檔案結構導覽 -->
                     <div class="section-card">
-                        <h3 class="section-title">分析步驟導覽</h3>
-                        <p class="section-text">點擊左側選單可載入完整 Jupyter Notebook 互動內容與輸出：</p>
+                        <h3 class="section-title">分析步驟導覽 / Walkthrough</h3>
+                        <p class="section-text">點擊左側選單可載入完整 Jupyter Notebook 互動內容與輸出：<br>Click the sidebar buttons to load the complete Jupyter Notebook HTML outputs:</p>
                         
                         <ul class="file-list-card">
                             <li class="file-list-item">
                                 <div class="file-number">1</div>
                                 <div class="file-details">
-                                    <div class="file-name">資料預處理</div>
-                                    <div class="file-desc">車禍經緯度清理與篩選雙北範圍</div>
+                                    <div class="file-name">資料預處理 / Data Preprocessing</div>
+                                    <div class="file-desc">車禍經緯度清理與篩選雙北範圍<br>Clean coordinates and filter target cities</div>
                                 </div>
                             </li>
                             <li class="file-list-item">
                                 <div class="file-number">2</div>
                                 <div class="file-details">
-                                    <div class="file-name">PyGMT 地理製圖</div>
-                                    <div class="file-desc">空間密度平滑化與地圖遮罩製作</div>
+                                    <div class="file-name">PyGMT 地理製圖 / PyGMT Mapping</div>
+                                    <div class="file-desc">空間密度平滑化與地圖遮罩製作<br>Smooth density mapping and district masking</div>
                                 </div>
                             </li>
                             <li class="file-list-item">
                                 <div class="file-number">3</div>
                                 <div class="file-details">
-                                    <div class="file-name">臺北市半徑分析</div>
-                                    <div class="file-desc">相關係數隨搜尋半徑的敏感度變化</div>
+                                    <div class="file-name">臺北市半徑分析 / Taipei Radius Analysis</div>
+                                    <div class="file-desc">相關係數隨搜尋半徑的敏感度變化<br>Sensitivity of coefficients across radii</div>
                                 </div>
                             </li>
                             <li class="file-list-item">
                                 <div class="file-number">4</div>
                                 <div class="file-details">
-                                    <div class="file-name">雙北市對比分析</div>
-                                    <div class="file-desc">比對臺北市與新北市的數據趨勢差異</div>
+                                    <div class="file-name">雙北市對比分析 / Taipei vs New Taipei Compare</div>
+                                    <div class="file-desc">比對臺北市與新北市的數據趨勢差異<br>Contrast correlation patterns of two cities</div>
                                 </div>
                             </li>
                             <li class="file-list-item">
                                 <div class="file-number">5</div>
                                 <div class="file-details">
-                                    <div class="file-name">MWU 假設檢定</div>
-                                    <div class="file-desc">檢定兩市車禍分布之統計顯著差異</div>
+                                    <div class="file-name">MWU 假設檢定 / MWU Hypothesis Testing</div>
+                                    <div class="file-desc">檢定兩市車禍分布之統計顯著差異<br>Statistical significance tests between distributions</div>
                                 </div>
                             </li>
                         </ul>
@@ -641,13 +649,14 @@
 
                 <!-- 演算法與工作流程區塊 -->
                 <div class="section-card" style="margin-top: 32px; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px;">
-                    <h3 class="section-title" style="font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 12px;">🧮 核心演算法與工作流程說明 (Algorithms & Pseudocode)</h3>
+                    <h3 class="section-title" style="font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 12px;">🧮 核心演算法與工作流程說明 / Core Algorithms & Pseudocode</h3>
                     
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 20px;">
                         <div>
-                            <h4 style="font-size: 15px; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">1. 空間半徑敏感度分析演算法</h4>
+                            <h4 style="font-size: 15px; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">1. 空間半徑敏感度分析演算法 / Spatial Radius Sensitivity</h4>
                             <p class="section-text" style="font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">
-                                以各測速照相機為中心建立半徑 $r$ 空間緩衝區 (Buffer)，統計落入其中的車禍數，並計算 Spearman 等級相關係數：
+                                <strong>[中]</strong> 以各測速照相機為中心建立半徑 $r$ 空間緩衝區 (Buffer)，統計落入其中的車禍數，並計算 Spearman 等級相關係數。<br>
+                                <strong>[Eng]</strong> Establish spatial buffers $B(C, r)$ centered at each speed camera, count occurrences of accidents within them, and calculate Spearman rank correlation:
                             </p>
                             <pre style="background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; font-family: monospace; font-size: 11px; color: #a7f3d0; overflow-x: auto; line-height: 1.5; margin-bottom: 16px;">
 Algorithm: Spatial_Sensitivity_Correlation
@@ -663,9 +672,10 @@ For each radius r in [500m, 1500m, ..., 9500m]:
                         </div>
                         
                         <div>
-                            <h4 style="font-size: 15px; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">2. 最小平方法線性建模 (LS & WLS)</h4>
+                            <h4 style="font-size: 15px; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">2. 最小平方法線性建模 / Least Squares Linear Modeling</h4>
                             <p class="section-text" style="font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">
-                                求解線性觀測方程 $d = G m + e$。封裝於 <code>utils.py</code>，提供普通與加權矩陣運算：
+                                <strong>[中]</strong> 求解線性觀測方程 $d = G m + e$。封裝於 <code>utils.py</code>，提供普通最小平方 (LS) 與加權最小平方 (WLS) 矩陣運算。<br>
+                                <strong>[Eng]</strong> Solve linear observation equation $d = G m + e$. Enclosed in <code>utils.py</code> to support Ordinary (LS) and Weighted Least Squares (WLS) matrix products:
                             </p>
                             <pre style="background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; font-family: monospace; font-size: 11px; color: #a7f3d0; overflow-x: auto; line-height: 1.5; margin-bottom: 16px;">
 Algorithm: solveWLS (Weighted Least Squares)
