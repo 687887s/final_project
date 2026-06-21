@@ -638,6 +638,45 @@
                         </ul>
                     </div>
                 </div>
+
+                <!-- 演算法與工作流程區塊 -->
+                <div class="section-card" style="margin-top: 32px; background-color: var(--bg-card); border: 1px solid var(--border-color); border-radius: 20px; padding: 32px;">
+                    <h3 class="section-title" style="font-size: 20px; font-weight: 700; margin-bottom: 20px; color: var(--text-main); border-left: 4px solid var(--primary); padding-left: 12px;">🧮 核心演算法與工作流程說明 (Algorithms & Pseudocode)</h3>
+                    
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px; margin-top: 20px;">
+                        <div>
+                            <h4 style="font-size: 15px; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">1. 空間半徑敏感度分析演算法</h4>
+                            <p class="section-text" style="font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">
+                                以各測速照相機為中心建立半徑 $r$ 空間緩衝區 (Buffer)，統計落入其中的車禍數，並計算 Spearman 等級相關係數：
+                            </p>
+                            <pre style="background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; font-family: monospace; font-size: 11px; color: #a7f3d0; overflow-x: auto; line-height: 1.5; margin-bottom: 16px;">
+Algorithm: Spatial_Sensitivity_Correlation
+For each radius r in [500m, 1500m, ..., 9500m]:
+    For each camera C:
+        Buffer B = C.buffer(r)
+        Accidents_In_B = filter(Accidents inside B)
+        C.accident_count = length(Accidents_In_B)
+    
+    Calculate Spearman correlation between:
+        - Camera_Density and accident_counts_at_radius
+    Save (radius, correlation_coefficient, p_value)</pre>
+                        </div>
+                        
+                        <div>
+                            <h4 style="font-size: 15px; color: var(--text-main); margin-bottom: 10px; font-weight: 600;">2. 最小平方法線性建模 (LS & WLS)</h4>
+                            <p class="section-text" style="font-size: 13px; color: var(--text-muted); line-height: 1.7; margin-bottom: 16px;">
+                                求解線性觀測方程 $d = G m + e$。封裝於 <code>utils.py</code>，提供普通與加權矩陣運算：
+                            </p>
+                            <pre style="background-color: var(--bg-main); border: 1px solid var(--border-color); padding: 12px; border-radius: 8px; font-family: monospace; font-size: 11px; color: #a7f3d0; overflow-x: auto; line-height: 1.5; margin-bottom: 16px;">
+Algorithm: solveWLS (Weighted Least Squares)
+1. m = Inverse(G.T @ W @ G) @ G.T @ W @ d
+2. Residuals e = d - G @ m
+3. RSS = Sum(e_i^2 * W_ii)
+4. Residual Variance = RSS / (n - p)
+5. Return m, RSS, residual_variance</pre>
+                        </div>
+                    </div>
+                </div>
                 
             </div>
         </div>
